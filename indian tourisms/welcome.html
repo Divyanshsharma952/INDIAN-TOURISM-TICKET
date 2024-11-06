@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .monuments {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .monument {
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .monument img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .monument:hover {
+      transform: scale(1.1);
+    }
+    .price {
+      display: none;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Monument Tour</h1>
+    <p>Click on a monument to see the ticket price.</p>
+    
+    <div class="monuments">
+      <div class="monument" onclick="showPrice('Taj Mahal')">
+    
+        <img src="https://www.puredestinations.co.uk/wp-content/uploads/2016/11/TAJ-MAHAL-PD-BLOG.jpg" alt="tajmahal">
+        <div class="price" id="price-Taj Mahal"></div>
+      </div>
+      <div class="monument" onclick="showPrice('Colosseum')">
+        <img src="https://www.turbopass.com/6661-carousel/colosseum-in-full-view-in-rome.jpg" alt="Colosseum">
+        <div class="price" id="price-Colosseum"></div>
+      </div>
+      <div class="monument" onclick="showPrice('Red Fort')">
+        <img src="https://www.puredestinations.co.uk/wp-content/uploads/2016/11/red-fort-PD-BLOG.jpg" alt="redfort">
+        <div class="price" id="price-Red Fort"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPrice(monument) {
+      const prices = {
+        "Taj Mahal": "Rs 100",
+        "Colosseum": "$12",
+        "Red Fort": "Rs 150"
+      };
+      
+      const priceElement = document.getElementById("price-" + monument);
+      priceElement.style.display = "block";
+      priceElement.innerText = "Ticket Price: " + prices[monument];
+    }
+  </script>
+</body>
+</html>
